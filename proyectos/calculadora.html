@@ -1,0 +1,39 @@
+   <!DOCTYPE html>
+   <html lang="es">
+   <head>
+   <meta charset="UTF-8">
+   <title>Calculadora sencilla</title>
+   </head>
+   <body>
+   <h1>Calculadora sencilla</h1>
+   <input type="number" id="a" placeholder="Primer numero">
+   <input type="number" id="b" placeholder="Segundo numero">
+   <br><br>
+   <button onclick="calcular('+')">Sumar</button>
+   <button onclick="calcular('-')">Restar</button>
+   <button onclick="calcular('*')">Multiplicar</button>
+   <button onclick="calcular('/')">Dividir</button>
+   <p id="resultado"></p>
+   <script>
+   function calcular(op) {
+     var a = parseFloat(document.getElementById("a").value);
+     var b = parseFloat(document.getElementById("b").value);
+     var r;
+     if (isNaN(a) || isNaN(b)) {
+       r = "Escribe los dos numeros";
+     } else if (op === "+") {
+       r = "Resultado: " + (a + b);
+     } else if (op === "-") {
+       r = "Resultado: " + (a - b);
+     } else if (op === "*") {
+       r = "Resultado: " + (a * b);
+     } else if (b === 0) {
+       r = "No se puede dividir por cero";
+     } else {
+       r = "Resultado: " + (a / b);
+     }
+     document.getElementById("resultado").innerText = r;
+   }
+   </script>
+   </body>
+   </html>
